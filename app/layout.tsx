@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const vazirFont = localFont({
+  src: "../public/fonts/Vazirmatn-Regular.woff2",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={vazirFont.className}>
+        <nav className="w-full h-8 bg-slate-300 flex justify-between items-center px-2">
+          <span className="">نام کاربر</span>
+          <span className="">خروج</span>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
